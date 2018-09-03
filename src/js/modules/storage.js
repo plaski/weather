@@ -1,60 +1,60 @@
 const storage = {
 
   storeUnit: function(isC) {
-    localStorage.setItem('unit', JSON.stringify(isC));
+    localStorage.setItem('weatherUnit', JSON.stringify(isC));
   },
 
   getUnit: function() {
-    let unit;
+    let weatherUnit;
     if (localStorage.getItem('unit') === null) {
-      unit = true;
+      weatherUnit = true;
     } else {
-      unit = JSON.parse(localStorage.getItem('unit'));
+      weatherUnit = JSON.parse(localStorage.getItem('unit'));
     }
-    return unit;
+    return weatherUnit;
   },
 
   storeItem: function(item) {
-    let items;
-    if (localStorage.getItem('items') === null) {
-      items = [];
-      items.push(item);
-      localStorage.setItem('items', JSON.stringify(items));
+    let weatherItems;
+    if (localStorage.getItem('weatherItems') === null) {
+      weatherItems = [];
+      weatherItems.push(item);
+      localStorage.setItem('weatherItems', JSON.stringify(weatherItems));
     } else {
-      items = JSON.parse(localStorage.getItem('items'));
-      items.push(item);
-      localStorage.setItem('items', JSON.stringify(items));
+      weatherItems = JSON.parse(localStorage.getItem('items'));
+      weatherItems.push(item);
+      localStorage.setItem('weatherItems', JSON.stringify(weatherItems));
     }
   },
 
   getItemsFromStorage: function() {
-    let items;
-    if (localStorage.getItem('items') === null) {
-      items = [];
+    let weatherItems;
+    if (localStorage.getItem('weatherItems') === null) {
+      weatherItems = [];
     } else {
-      items = JSON.parse(localStorage.getItem('items'));
+      weatherItems = JSON.parse(localStorage.getItem('weatherItems'));
     }
-    return items;
+    return weatherItems;
   },
 
   updateItemStorage: function(updatedItem) {
-    let items = JSON.parse(localStorage.getItem('items'));
-    items.forEach(function(item, index) {
+    let weatherItems = JSON.parse(localStorage.getItem('weatherItems'));
+    weatherItems.forEach(function(item, index) {
       if (updatedItem.id === item.id) {
-        items.splice(index, 1, updatedItem);
+        weatherItems.splice(index, 1, updatedItem);
       }
     });
-    localStorage.setItem('items', JSON.stringify(items));
+    localStorage.setItem('weatherItems', JSON.stringify(weatherItems));
   },
 
   deleteItemFromStorage: function(id) {
-    let items = JSON.parse(localStorage.getItem('items'));
-    items.forEach(function(item, index) {
+    let weatherItems = JSON.parse(localStorage.getItem('weatherItems'));
+    weatherItems.forEach(function(item, index) {
       if (id === item.id) {
-        items.splice(index, 1);
+        weatherItems.splice(index, 1);
       }
     });
-    localStorage.setItem('items', JSON.stringify(items));
+    localStorage.setItem('weatherItems', JSON.stringify(weatherItems));
   }
 }
 
