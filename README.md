@@ -13,6 +13,6 @@ Check weather and forecast in every place!
 
 ## Code/Live
 
-- [Live](https://plaski.github.io/weather/build)
+- [Live](https://plaski.github.io/weather/dist)
 
 - [Code](https://github.com/plaski/weather)
